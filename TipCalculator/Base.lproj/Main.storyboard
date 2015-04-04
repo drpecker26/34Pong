@@ -20,17 +20,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Total (Post-Tax):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHO-xT-lah" userLabel="Bill Total (Post-Tax):">
                                 <rect key="frame" x="33" y="81" width="151" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="151" id="9B9-nH-jbq"/>
-                                    <constraint firstAttribute="height" constant="21" id="T6G-cX-e2F"/>
+                                    <constraint firstAttribute="height" constant="21" id="OxR-Xi-2d7"/>
+                                    <constraint firstAttribute="width" constant="151" id="a1R-gP-Teg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tax Percentage (0%):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8a-qd-V46" userLabel="Tax Percentage (0%):">
-                                <rect key="frame" x="20" y="120" width="164" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kpg-lh-Opm">
@@ -38,54 +32,41 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="xy1-Bi-nKC">
-                                <rect key="frame" x="190" y="116" width="396" height="31"/>
-                                <connections>
-                                    <action selector="taxPercentageChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="VtS-h6-kmu"/>
-                                </connections>
-                            </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kz-5H-zAs">
-                                <rect key="frame" x="268" y="154" width="120" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="W0L-dd-rOq"/>
-                                </constraints>
-                                <state key="normal" title="Calculate">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="calculateTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dnm-Ub-SiN"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cok-xh-TRb">
-                                <rect key="frame" x="0.0" y="192" width="600" height="408"/>
+                                <rect key="frame" x="33" y="329" width="551" height="244"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="244" id="LDz-FO-1A8"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="dSd-Om-Ozk"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="WMF-3g-PDZ"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventtableheader" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8a-qd-V46" userLabel="eventtableheader">
+                                <rect key="frame" x="33" y="289" width="164" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="164" id="ddz-Rg-TMg"/>
+                                    <constraint firstAttribute="height" constant="21" id="i3c-1f-HDq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="cok-xh-TRb" firstAttribute="top" secondItem="0Kz-5H-zAs" secondAttribute="bottom" constant="8" symbolic="YES" id="0PW-dW-sPv"/>
-                            <constraint firstItem="xy1-Bi-nKC" firstAttribute="trailing" secondItem="Kpg-lh-Opm" secondAttribute="trailing" id="13G-zR-wJX"/>
-                            <constraint firstItem="Kpg-lh-Opm" firstAttribute="leading" secondItem="IHO-xT-lah" secondAttribute="trailing" constant="8" symbolic="YES" id="1Me-cE-QaF"/>
-                            <constraint firstItem="cok-xh-TRb" firstAttribute="top" secondItem="i8a-qd-V46" secondAttribute="bottom" constant="51" id="1xZ-8f-jAu"/>
-                            <constraint firstItem="0Kz-5H-zAs" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="268" id="2pB-cW-z3O"/>
-                            <constraint firstItem="Kpg-lh-Opm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="13" id="7b8-Nv-J4e"/>
-                            <constraint firstItem="cok-xh-TRb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="7hM-SH-gmA"/>
-                            <constraint firstItem="i8a-qd-V46" firstAttribute="top" secondItem="IHO-xT-lah" secondAttribute="bottom" constant="18" id="CWw-oe-gl9"/>
-                            <constraint firstItem="Kpg-lh-Opm" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="E7Z-gx-tu6"/>
-                            <constraint firstItem="i8a-qd-V46" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="4" id="EuZ-qg-4EM"/>
-                            <constraint firstItem="xy1-Bi-nKC" firstAttribute="top" secondItem="Kpg-lh-Opm" secondAttribute="bottom" constant="9" id="GeB-E1-3Yb"/>
-                            <constraint firstItem="xy1-Bi-nKC" firstAttribute="leading" secondItem="Kpg-lh-Opm" secondAttribute="leading" id="Mcm-OU-is6"/>
-                            <constraint firstAttribute="trailing" secondItem="cok-xh-TRb" secondAttribute="trailing" id="cJ6-yC-Eeg"/>
-                            <constraint firstItem="cok-xh-TRb" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="ceX-Cd-hK9"/>
-                            <constraint firstItem="xy1-Bi-nKC" firstAttribute="leading" secondItem="i8a-qd-V46" secondAttribute="trailing" constant="8" symbolic="YES" id="jCf-Uv-Kre"/>
-                            <constraint firstItem="IHO-xT-lah" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="17" id="jwU-v5-ci3"/>
-                            <constraint firstItem="IHO-xT-lah" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="17" id="n3C-yl-qBD"/>
-                            <constraint firstItem="0Kz-5H-zAs" firstAttribute="top" secondItem="xy1-Bi-nKC" secondAttribute="bottom" constant="8" symbolic="YES" id="ncS-p8-vXH"/>
+                            <constraint firstItem="cok-xh-TRb" firstAttribute="top" secondItem="i8a-qd-V46" secondAttribute="bottom" constant="19" id="6ji-nB-j3S"/>
+                            <constraint firstItem="IHO-xT-lah" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="17" id="IZS-Ge-EO5"/>
+                            <constraint firstItem="Kpg-lh-Opm" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Kw2-Jg-SNG"/>
+                            <constraint firstItem="i8a-qd-V46" firstAttribute="leading" secondItem="IHO-xT-lah" secondAttribute="leading" id="LXJ-ZZ-CiT"/>
+                            <constraint firstItem="IHO-xT-lah" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="17" id="Ocw-9J-I4F"/>
+                            <constraint firstItem="Kpg-lh-Opm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="13" id="RyL-ab-1Xe"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cok-xh-TRb" secondAttribute="bottom" constant="27" id="bYP-1Z-j6T"/>
+                            <constraint firstItem="Kpg-lh-Opm" firstAttribute="trailing" secondItem="cok-xh-TRb" secondAttribute="trailing" id="fRw-uq-g5t"/>
+                            <constraint firstItem="Kpg-lh-Opm" firstAttribute="leading" secondItem="IHO-xT-lah" secondAttribute="trailing" constant="8" symbolic="YES" id="ssd-TT-L5I"/>
+                            <constraint firstItem="cok-xh-TRb" firstAttribute="leading" secondItem="i8a-qd-V46" secondAttribute="leading" id="v5M-5Y-xJE"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Wbn-rq-ZGc" appends="YES" id="sMZ-Mh-5zy"/>
@@ -93,9 +74,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="5Hy-Uc-9f1" userLabel="Tip Calculator"/>
                     <connections>
+                        <outlet property="eventtableheader" destination="i8a-qd-V46" id="9OI-TD-nyz"/>
                         <outlet property="tableView" destination="cok-xh-TRb" id="Ml4-7a-Nfn"/>
-                        <outlet property="taxPctLabel" destination="i8a-qd-V46" id="wsa-GB-Kh1"/>
-                        <outlet property="taxPctSlider" destination="xy1-Bi-nKC" id="Uy0-E1-e4q"/>
                         <outlet property="totalTextField" destination="Kpg-lh-Opm" id="kNA-M3-OkF"/>
                     </connections>
                 </viewController>
