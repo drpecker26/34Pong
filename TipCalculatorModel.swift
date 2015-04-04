@@ -6,13 +6,11 @@
 //  Copyright (c) 2015 PeckLubka. All rights reserved.
 //
 
-// Test change. Can you see this in Git?
-
-// Test Change #2. Committed on 4/4/15 at 1126am. 
-
 import Foundation
 
+// Let's try switching out the TipCalculatorModel with my basic PongEvent.
 
+/*
 class TipCalculatorModel {
     
     // establish the data types of the relevant variables.
@@ -70,4 +68,39 @@ class TipCalculatorModel {
         return retval
         
     }
+}
+*/
+
+class PongEvent {
+    
+    // Declare information of a 34Pong event.
+    var eventname: String
+    var eventplace: String
+    var eventwhen: String
+    var eventspots: UInt8  //max integer 255.
+    var eventinviter: String
+    
+    // More if necessary- let's not use 'em yet.
+    //var eventinvitees: [String]
+    //var eventacceptees: [String]
+    //var eventrejectees: [String]
+    
+    // Initialize the class.
+    init(eventname: String, eventplace: String, eventwhen: String, eventspots: UInt8,eventinviter: String) {
+        self.eventname = eventname
+        self.eventplace = eventplace
+        self.eventwhen = eventwhen
+        self.eventspots = eventspots
+        self.eventinviter = eventinviter
+    }
+    
+    // Debug: announce properties of class.
+    func Announce() {
+        println("/(eventname)")
+        println("/(eventplace)")
+        println("/(eventwhen)")
+        println("/(eventspots)")
+        println("/(eventinviter)")
+    }
+    
 }

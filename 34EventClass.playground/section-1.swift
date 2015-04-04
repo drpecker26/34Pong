@@ -41,3 +41,30 @@ class PongEvent {
 
 let exampleponggame = PongEvent(eventname: "2v2 Masters Practice", eventplace: "A-side", eventwhen: "5min", eventspots: 3, eventinviter: "Sam")
 exampleponggame.Announce()
+
+let exampleponggame1 = PongEvent(eventname: "2v2 Masters Practice", eventplace: "A-side", eventwhen: "5min", eventspots: 3, eventinviter: "Sam")
+let exampleponggame2 = PongEvent(eventname: "Hitting around", eventplace: "C-side", eventwhen: "15min", eventspots: 3, eventinviter: "Ethan")
+let exampleponggame3 = PongEvent(eventname: "1v1 tourny", eventplace: "B-side", eventwhen: "1hr", eventspots: 1, eventinviter: "Dbo")
+
+
+//practice making an array of pongevents.
+let eventtable = [exampleponggame1,exampleponggame2,exampleponggame3]
+
+eventtable[1].eventname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
