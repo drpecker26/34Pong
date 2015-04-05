@@ -63,18 +63,17 @@ for i in alleventtable {
 }
 
 
-alleventtable[4].eventinviter
+alleventtable[4].eventinvitees
 
 
 //Make a function to filter out only the events that are yours.
 // Of the full table of events, return just those where "Sam" was the event creator.
 
-func yourevents(inviter: String, table: [PongEvent]) -> [PongEvent] {  //input: inverter sting; output: array of PongEvents.
+func yourevents(inviter: String, table: [PongEvent]) -> [PongEvent] {  //input: inviter sting; output: array of PongEvents.
     var youreventtable: [PongEvent] = []
     for i in table {    // Cycle through all events.
         // If the event is by the user, add it to "yourevents".
         if i.eventinviter == inviter {
-            //println("\(i) times 5 is \(i)")
             youreventtable.append(i)
         }
     }
@@ -83,6 +82,26 @@ func yourevents(inviter: String, table: [PongEvent]) -> [PongEvent] {  //input: 
 
 yourevents("Sam",alleventtable)
 
+// Now try to make a function that finds all events that you've been invited to. 
+//input: invitee sting; output: array of PongEvents.
+
+
+// how to search an array? Google that shit!
+if let index = find(alleventtable[4].eventinvitees,"Sam") {
+    println("this shit is real!")
+}
+
+// Function to find all events that you've been invited to.
+//input: invitee; output: array of PongEvents.
+func yourinvites(invitee: String, table: [PongEvent]) -> [PongEvent] {
+    var yourinvitetable: [PongEvent] = []
+    for i in table {   //search the table.
+        if let something = find(i.eventinvitees,"Sam") {  //a function that confirms that "Sam" is in the table's i.eventinvitees.
+            yourinvitetable.append(i)   // add to the output list.
+        }
+    }
+    return yourinvitetable
+}
 
 
 

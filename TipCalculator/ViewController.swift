@@ -50,6 +50,23 @@ class ViewController: UIKit.UIViewController, UITableViewDataSource {
         get {return yourevents("Sam",table: alleventtable)}
     }
     
+    // Function to find all events that you've been invited to.
+    //input: invitee; output: array of PongEvents.
+    func yourinvites(invitee: String, table: [PongEvent]) -> [PongEvent] {
+        var yourinvitetable: [PongEvent] = []
+        for i in table {   //search the table.
+            if let something = find(i.eventinvitees,"Sam") {  //a function that confirms that "Sam" is in the table's i.eventinvitees.
+                yourinvitetable.append(i)   // add to the output list.
+            }
+        }
+        return yourinvitetable
+    }
+    
+    // Cool! now create a table that Sam has been invited to.
+    var saminvitetable: [PongEvent] {
+        get {return yourinvites("Sam",table: alleventtable)}
+    }
+    
     
 // UI Stuff
     // Not sure what this does. I think it connects the script to the Table View.
