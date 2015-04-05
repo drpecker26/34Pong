@@ -79,9 +79,9 @@ class PongEvent {
     var eventwhen: String
     var eventspots: UInt8  //max integer 255.
     var eventinviter: String
+    var eventinvitees: [String]
     
     // More if necessary- let's not use 'em yet.
-    var eventinvitees: [String]
     //var eventacceptees: [String]
     //var eventrejectees: [String]
     
@@ -106,3 +106,6 @@ class PongEvent {
     }
     
 }
+
+
+

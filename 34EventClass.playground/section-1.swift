@@ -104,6 +104,7 @@ func yourinvites(invitee: String, table: [PongEvent]) -> [PongEvent] {
 }
 
 
+var selected_table_type = "yourevents"
 
 
 
