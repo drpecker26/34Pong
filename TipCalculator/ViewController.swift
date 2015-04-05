@@ -21,18 +21,37 @@ class ViewController: UIKit.UIViewController, UITableViewDataSource {
     @IBOutlet var resultsTextView : UITextView!
     
     
-    // 4/4: removing TipCalc stuff, replacing w/ PongEvent.
-    let exampleponggame1 = PongEvent(eventname: "2v2 Masters Practice", eventplace: "@A-side", eventwhen: "5 days ago", eventspots: 3, eventinviter: "Sam")
-    let exampleponggame2 = PongEvent(eventname: "Hitting around", eventplace: "@C-side", eventwhen: "3 days ago", eventspots: 3, eventinviter: "Ethan")
-    let exampleponggame3 = PongEvent(eventname: "1v1 tourny", eventplace: "@B-side", eventwhen: "10 days ago", eventspots: 1, eventinviter: "Dbo")
+    // Build a database of various static PongEvent data.
+    let exampleponggame1 = PongEvent(eventname: "2v2 Masters Practice", eventplace: "@A-side", eventwhen: "5 days ago", eventspots: 3, eventinviter: "Sam", eventinvitees: ["Ethan","Dbo","Yang","Leimbach"])
+    let exampleponggame2 = PongEvent(eventname: "Hitting around", eventplace: "@C-side", eventwhen: "3 days ago", eventspots: 3, eventinviter: "Sam", eventinvitees: ["Ethan","Dbo","Vallacher"])
+    let exampleponggame3 = PongEvent(eventname: "1v1 tourny", eventplace: "@B-side", eventwhen: "10 days ago", eventspots: 1, eventinviter: "Ethan", eventinvitees: ["Sam"])
+    let exampleponggame4 = PongEvent(eventname: "1v1 practice", eventplace: "@Q-side", eventwhen: "1 days ago", eventspots: 1, eventinviter: "Ethan", eventinvitees: ["Sam","Dbo","Vallacher","Yang"])
+    let exampleponggame5 = PongEvent(eventname: "Harbor", eventplace: "@Basement", eventwhen: "2 days ago", eventspots: 7, eventinviter: "Dbo", eventinvitees: ["Sam","Dbo","Vallacher","Yang","Leimbach","Ethan","Bitches"])
     
-    //make a table. Note that this has to be a computed property, rather than a 'let' or 'var'.
-    var eventtable: [PongEvent] {
-        get {
-            return [exampleponggame1,exampleponggame2,exampleponggame3]
-        }
+    //make a table of every event in the database. Note that this has to be a computed property, rather than a 'let' or 'var'.
+    var alleventtable: [PongEvent] {
+        get {return [exampleponggame1,exampleponggame2,exampleponggame3,exampleponggame4,exampleponggame5]}
     }
     
+    //Now make a table of events just by a person. (tested and verified in Playground)
+    func yourevents(inviter: String, table: [PongEvent]) -> [PongEvent] {  //input: inviter sting; output: array of PongEvents.
+        var youreventtable: [PongEvent] = []
+        for i in table {    // Cycle through all events.
+            // If the event is by the user, add it to "yourevents".
+            if i.eventinviter == inviter {
+                youreventtable.append(i)
+            }
+        }
+        return youreventtable
+    }
+    
+    // Use your new function to create a table just for "Sam".
+    var sameventtable: [PongEvent] {
+        get {return yourevents("Sam",table: alleventtable)}
+    }
+    
+    
+// UI Stuff
     // Not sure what this does. I think it connects the script to the Table View.
     @IBOutlet weak var tableView: UITableView!
     
@@ -59,7 +78,7 @@ class ViewController: UIKit.UIViewController, UITableViewDataSource {
     
 // 3/31: "one of the two required methods you must implement to conform to UITableViewDataSource". Asks how many rows there are in the table.
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3 // USed to be 'sortedKeys.count'. For now, hardcode rows.
+        return sameventtable.count // return length of your table.
     }
     
     // The other. This method called for every row in the table view. Returns the view representing the row (a subclass of UITableViewCell).
@@ -70,7 +89,7 @@ class ViewController: UIKit.UIViewController, UITableViewDataSource {
         
         //4/4: try to get cells to show different values.
         let rowno: Int = indexPath.row
-        let event = eventtable[rowno]
+        let event = sameventtable[rowno]
         
         // Set values for properties in UITableViewCell.
         cell.textLabel?.text = "\(event.eventname)"
