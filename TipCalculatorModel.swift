@@ -81,17 +81,18 @@ class PongEvent {
     var eventinviter: String
     
     // More if necessary- let's not use 'em yet.
-    //var eventinvitees: [String]
+    var eventinvitees: [String]
     //var eventacceptees: [String]
     //var eventrejectees: [String]
     
     // Initialize the class.
-    init(eventname: String, eventplace: String, eventwhen: String, eventspots: UInt8,eventinviter: String) {
+    init(eventname: String, eventplace: String, eventwhen: String, eventspots: UInt8,eventinviter: String,eventinvitees: [String]) {
         self.eventname = eventname
         self.eventplace = eventplace
         self.eventwhen = eventwhen
         self.eventspots = eventspots
         self.eventinviter = eventinviter
+        self.eventinvitees = eventinvitees
     }
     
     // Debug: announce properties of class.
@@ -101,6 +102,7 @@ class PongEvent {
         println("/(eventwhen)")
         println("/(eventspots)")
         println("/(eventinviter)")
+        println("/(eventinvitees)")
     }
     
 }
